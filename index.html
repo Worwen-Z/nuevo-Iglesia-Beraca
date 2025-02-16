@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iglesia Beraca</title>
+
+        <!--||| LINK A CSS |||-->
+    <link rel="preload" href="css/styles.css" as="style" type="text/css">
+
+    <!--||| LINK A normalize |||-->
+    <link rel="stylesheet" href="css/normalize.css">
+
+    <!--||| LINK A GOOGLE FONTS |||-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- ANALIZAR CUAL FUENTE DEJAR PARA LA PAGINA || ¡¡¡ELIMINAR LAS FUENTES QUE NO OCUPARE!!!!-->
+                                        <!--|| Merriweather|| -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900&display=swap" rel="stylesheet">
+                                        <!-- ||| PT Serif |||-->
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+                                        <!--||| Roboto||| -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+                                        <!-- |||Anton|||-->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+                                        <!-- |||Bebas+Neue |||-->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+                                        <!-- |||Raleway||| -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+                                        <!--|||Lato||| -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+                                        <!--||| Montserrat |||-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"> <link rel="stylesheet" href="css/styles.css">
+                                        <!--||| Lora||| -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!--|| PANTALLA DE CARGA ||| -->
+    <div id="loading-screen">
+        <video autoplay muted loop>
+            <source src="video/acuario 4K.mp4" type="video/mp4">
+            <source src="video/acuario 4K.wbm" type="video/webm">
+            Tu navegador no soporta la reproducción de video. 😒
+        </video>
+        <div class="loading-content">
+            <div class="loading-message tracking-in-expand">
+                <p><strong>"La creación del Señor es hermosa, y su justicia permanece para siempre"</strong></p>
+                <p class="cita">Salmo 111:3</p>
+            </div>
+            <img src="img/logo 1.png" alt="logo Iglesia Beraca" class="loading-logo blur-in-expand">
+            <button type="button" id="ingresar-button" class="button">Ingresar</button>
+        </div>
+    </div>
+    <!-- ||| FIN PANTALLA DE CARGA ||| -->
+
+    <!-- ||| INICIO PAGINA (HEADER)||| -->
+    <header class="header">
+        <div class="overlay"></div>
+
+        <!--||| NAVEGACIÓN |||-->
+        <nav class="barra" id="navbar">
+            <div class="contenedor">
+                <div class="Logo">
+                    <a href="index.html">
+                        <img class="Logo__imagen" src="img/logo 2.png" alt="Logo Beraca">
+                    </a>
+                </div>
+    
+                <div class="navegacion__lista">
+                    <a href="#Inicio" class="navegacion__enlace" aria-label="Inicio">Inicio</a>
+                    <a href="#QuienesSomos" class="navegacion__enlace" aria-label="Quiénes Somos">Quiénes Somos</a>
+                    <a href="#EnVivo" class="navegacion__enlace" aria-label="En Vivo">En Vivo</a>
+                    <a href="#Donacion" class="navegacion__enlace" aria-label="Donación">Donación</a>
+                    <a href="#Contactenos" class="navegacion__enlace" aria-label="Contáctenos">Contáctenos</a>
+                </div>
+            </div>
+        </nav>
+            
+
+                <!--||| TEXTO DE PORTADA HEADER |||-->
+            <div class="texto-bienvenida">
+                <div class="linea-divisora"></div>
+                <h1>Somos un <span>Cuerpo</span>, somos una <span>Familia</span>, somos una <span>Iglesia</h1>
+                <div class="linea-divisora"></div>
+            </div>
+                    <!--||| BOTONES HEADER |||-->
+            <div class="contenedor_boton">
+                <div class="boton">
+                    <a href="#pastores" id="continuar-button">
+                        <button type="button">CONTINUAR</button>
+                    </a>
+                    <a href="#horarios"><button>VER HORARIOS</button></a>
+                </div>
+            </div>
+    </header>
+    <!--|||FIN HEADER||-->
+
+    <!--||| INICIO DE CONTENIDO |||-->
+
+<div id="contenido-principal">
+    <main>
+        <!-- Sección Pastores con mensaje Bienvenidos -->
+        <section id="pastores" class="seccion-pastores">
+            <div class="contenedor">
+                <div class="pastores-content">
+                    <div class="pastor-image">
+                        <img src="img/pastor ruben sf.png" alt="Pastor Ruben Zuñiga">
+                    </div>    
+                    <div class="pastor-title">
+                        <h2>¡Bienvenidos!</h2>
+                    </div>
+                    <div class="pastor-image">
+                        <img src="img/pastor myriam sf (1).png" alt="Pastora Myriam Zuñiga">
+                    </div>
+                </div>
+                <div class="pastor-description">
+                    <p>Nuestros pastores principales, Ruben y Myriam Zuñiga, anhelan en su corazón llegar a cada miembro de nuestro país con el mensaje transformador de Jesús. Desde hace 15 años que dedican por completo su vida a cumplir el propósito de Dios.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN QUIENES SOMOS -->
+        <section id="quienes-somos" class="seccion-quienes-somos">
+            <div class="contenedor">
+                <div class="QuienesSomos-title">
+                    <h2>¿Quiénes Somos?</h2>
+                </div>
+                <div class="texto-quienesSomos">
+                    <p>Somos una iglesia que brinda la oportunidad de que las personas pueden tener experiencias reales y cercanas con Dios, haciendo de cada encuentro con su presencia un cambio, una luz en la oscuridad, un nuevo aliento de vida. Estamos comprometidos con la palabra y la obra de Dios, preparados para el fortalecimiento de un corazón dispuesto a ser guiado y transformado para el propósito que Dios tiene para la vida de cada uno de sus hijos. Confiando en nada somos sin Dios y que todo lo podemos en ÉL.
+
+                    Nos apasionamos por Jesús, las personas y su iglesia siendo esto lo que nos impulsa a amar y servir a todos a quienes nos rodean porque fuimos amados primero por Él y nuestro Anhelo es acercar a quienes están lejos de su presencia día a día, bajo distintas plataformas y en cada servicio. Jesús dio todo por nosotros, y es nuestro deber y honor retribuirlo haciendo lo mejor con lo que tenemos, entregando nuestro tiempo, dones y talentos.
+                        
+                    Estamos en constante crecimiento y somos agradecidos por la autoridad espiritual que se nos ha delegado. Con alegría nos sometemos a quienes Dios ha puesto sobre nosotros, y así mismo honramos y cuidamos a quienes se han unido a nuestra travesía. Beraca es bendición, familia, amor, paternidad, identidad, prosperidad, milagros. ¡Ven como eres! Serás amado con el amor y la palabra de Dios. Beraca más que iglesia, es un lugar para crecer.</p>
+                        
+                    <p> "Donde la vida se encuentra con el amor"</p>
+                </div>
+            </div>
+        </section>
+
+        <!--||| SECCIÓN VISÓN PARTIR DE AQUÍ |||-->
+        <section id="vision" class="seccion-vision">
+            <div class="contenedor">
+                <h2>Visión</h2>
+                <p>Texto sobre la visión y objetivos de la iglesia.</p>
+            </div>
+        </section>
+
+            <!-- SECCIÓN DONACIONES -->
+            <section id="donaciones" class="seccion-donaciones">
+                <div class="contenedor">
+                    <h2>Donaciones/Ofrendas</h2>
+                    <a href="#" class="boton-donacion">Donar/Ofrendar</a>
+                </div>
+            </section>
+
+            <!-- SECCIÓN EN VIVO -->
+            <section id="en-vivo" class="seccion-en-vivo">
+                <div class="contenedor">
+                    <h2>En Vivo</h2>
+                    <a href="https://www.youtube.com/tu-canal-en-vivo" target="_blank" rel="noopener" class="boton-en-vivo">Ver en Vivo</a>
+                </div>
+            </section>
+
+            <!-- SECCIÓN VIDEO-SHORT -->
+            <section id="video-short" class="seccion-video-short">
+                <div class="contenedor">
+                    <h2>Video Short</h2>
+                    <video src="ruta/al/video-short.mp4" controls></video>
+                </div>
+            </section>
+
+            <!-- SECCIÓN PREDICA RECIENTE -->
+            <section id="predica-reciente" class="seccion-predica-reciente">
+                <div class="contenedor">
+                    <h2>Prédica Más Reciente</h2>
+                    <iframe 
+                        width="560" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/id-video-youtube" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen 
+                        title="Título del video de YouTube"> 
+                    </iframe>
+                </div>
+            </section>
+
+            <!-- SECCIÓN EVENTO 2025 -->
+            <section id="evento-2025" class="seccion-evento-2025">
+                <div class="contenedor">
+                    <h2>Eventos 2025</h2>
+                    <p>Información sobre el evento (fecha, lugar, etc.).</p>
+                </div>
+            </section>
+
+
+            <!-- SECCION DIA DE REUNIONES -->
+            <section id="dias-reuniones">
+                <h2>Días de reuniones</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Día</th>
+                            <th>Hora</th>
+                            <th>Lugar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lunes</td>
+                            <td>10:00 AM</td>
+                            <td>Sala de conferencias</td>
+                        </tr>
+                        <tr>
+                            <td>Miércoles</td>
+                            <td>3:00 PM</td>
+                            <td>Oficina principal</td>
+                        </tr>
+                        <tr>
+                            <td>Viernes</td>
+                            <td>11:00 AM</td>
+                            <td>Videoconferencia</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+
+
+
+            <!-- |||SECCIÓN CONTACTO||| -->
+            <section id="contacto" class="seccion-contacto">
+                <div class="contenedor">
+                    <h2>Contacto</h2>
+                    <div class="contacto-content">
+                        <div class="contacto-info">
+                            <h3>Iglesia Beraca</h3>
+                            <p>Dirección: Departamental #569,San Miguel</p>
+                            <p>Teléfono: Lorem ipsum </p>
+                            <p>Correo electrónico: Lorem ipsum dolor sit amet.</p>
+                        </div>
+                        <div class="contacto-form">
+                            <h3>Envíanos un mensaje</h3>
+                            <form action="#" method="post">
+                                <input type="text" name="nombre" placeholder="Nombre" required>
+                                <input type="email" name="email" placeholder="Correo electrónico" required>
+                                <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+                                <button type="submit">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    </main>
+</div>
+
+    <!-- |||FOOTER||| -->
+    <footer>
+        <div class="contenedor">
+            <p>&copy; 2025 Iglesia Beraca. Todos los derechos reservados.</p>
+            <ul class="footer-links">
+                <!-- <li><a href="#">Departamental #569,San Miguel</a></li> -->
+                <!-- <li><a href="#">Política de privacidad</a></li>
+                <li><a href="#">Contacto</a></li> -->
+            </ul>
+        </div>
+    </footer>
+
+
+
+    <!--||| ARCHIVOS JS ||| -->
+        <script src="js/loading.js"></script>
+        <script src="js/scrollPcarga.js"></script>
+        <script src="js/scrollNav.js"></script>
+    </body>
+</html>

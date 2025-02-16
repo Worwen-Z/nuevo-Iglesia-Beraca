@@ -1,0 +1,989 @@
+
+:root {
+    --fuenteHeading: 'PT serif';
+    --fuenteParrafo: 'arial';
+    --fuenteBotones: 'PT serif';
+    --primarioOscuro: #0E34A0;
+    --primario: #13315c;
+    --secundario: #134074f0;
+    --terciario: #080809e8;
+    --cuarto: #343a4056;
+    --negro: #000;
+    --blanco: #ffffff;
+    --transparenteNegro: rgba(0, 0, 0, 0.078);
+    --transparenteNegroNav: rgba(0, 0, 0, 0);
+    --amarillo: #FCFF4B;
+}
+
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+    /* |||| GLOBALES |||| */
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.contenedor {
+    max-width: 120rem;
+    width: 90%;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--fuenteParrafo);
+}
+
+img {
+    max-width: 100%;
+}
+
+section {
+    background-image: url("img/fondo-blanco-ondulado.jpg");
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------------------------*/
+
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+    /* ||| PANTALLA DE CARGA ||| */
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#contenido-principal {
+    pointer-events: none; /* Evita la interacción con el contenido principal */
+}
+
+#loading-screen.hidden + #contenido-principal { /* Cuando #loading-screen está oculto */
+    pointer-events: auto; /* Reactiva la interacción con el contenido principal */
+}
+
+#loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#loading-screen video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+/*----------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------------*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+    /*||| MENSAJE DE PANTALLA DE CARGA|||| */
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+.loading-message p {
+    margin: 5px 0;
+}
+
+.cita {
+    font-family: 'Lato';
+}
+
+.loading-logo {
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.tracking-in-expand {
+    animation: tracking-in-expand 0.9s linear both;
+}
+
+@keyframes tracking-in-expand {
+    0% {
+    transform: opacity(0);
+    transform: scale(0.8); /* Empieza un poco más pequeño */
+    }
+    
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    
+    }
+
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+    /* |||TEXTO DE PANTALLA DE CARGA||| */
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+.loading-message {
+    color: #fff;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-family: 'Raleway';
+}
+
+.blur-in-expand {
+    animation: blur-in-expand 1.7s linear both;
+}
+
+@keyframes blur-in-expand {
+    0% {
+        transform: scale(0);
+        filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+/*----------------------------------------------------------------------------------------------------------*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+    /* |||BOTON PANTALLA CARGA "INGRESAR"||| */
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid #4f4f4f;
+    border-radius: 4px;
+    transition: all 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+    font-size: 19px;
+    cursor: pointer;
+    color: black;
+    z-index: 1;
+}
+
+.button:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    top: 100%;
+    width: 140%;
+    height: 180%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.button:after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    top: 180%;
+    width: 160%;
+    height: 190%;
+    background-color: #39bda7;
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.button:hover {
+    color: #ffffff;
+    border: 1px solid #39bda7;
+}
+
+.button:hover:before {
+    top: -35%;
+    background-color: #39bda7;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.button:hover:after {
+    top: -45%;
+    background-color: #39bda7;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+body.loading {
+    overflow: hidden; /* Desactiva el scroll */
+}
+
+
+body {
+    margin: 0;
+    
+}
+/*------------------------------------------------------------------------------------------------------------*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*------------------------------------------------------------------------------------------------------------*/
+
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+    /* ||| HEADER ||| */
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+.header {
+    position: relative;
+    height: 100rem;
+    background-image: url('../img/F adoración.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #02010A;
+    opacity: 0.3;
+}
+/*---------------------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------------------*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*|||| TEXTO DE BIENVENIDA EN EL HEADER : SOMO UN CUERPO, UNA FAMILIA, UNA IGLESIA |||*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+.texto-bienvenida {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    font-size:3em;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--blanco);
+    font-family: 'sans serif';
+    font-weight: 900;
+    z-index: 3;
+    line-height: 1.2;
+    animation: sand-fade-initial 6s ease-in-out forwards;
+    -webkit-backdrop-filter: blur(10px); /* Prefijo para Safari */
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.729);
+    padding: 2rem;
+    max-width: 80%;
+    width: fit-content;
+    box-sizing: border-box;
+}
+
+.texto-bienvenida span {
+    font-weight: bold;
+    color: var(--blanco);
+}
+/*------------------------------------------------------------------------------------------*/
+
+
+/*-------------------------------------------------------------------------------------------*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*||| EFECTO DE TEXTO DE BIENVENIDA||| */
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
+
+
+
+
+
+
+/*--------------------------------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------------------------------------*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$$$*/
+    /*|||LINEA DIVISORA DE TEXTO BIENVENIDA||| */
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/    
+.linea-divisora {
+    width: 65%;
+    height: 1.5px;
+    background-color: var(--blanco);
+    margin: 2rem auto;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.688);
+}
+/*----------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------*/
+/*%%%%%%%%%%%%%%%%%%%%*/
+    /*||| NAV |||*/
+/*%%%%%%%%%%%%%%%%%%%%*/
+.barra {
+    background-color: var(--transparenteNegroNav); /* Fondo semi-transparente blanco */
+    position: fixed; /* Fija la barra */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; /* Asegura que esté por encima de otros elementos */
+    padding: 10px 0; /* Ajusta el padding vertical */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+.barra .contenedor {
+    display: flex;
+    justify-content: space-between; /* Distribuye el logo y los enlaces */
+    align-items: center; /* Alinea verticalmente */
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 0 20px; /* Añade padding horizontal */
+}
+
+.Logo__imagen {
+    max-height: 60px; /* Ajusta la altura máxima del logo */
+}
+
+.navegacion__lista {
+    display: flex; /* Muestra los enlaces en línea */
+    list-style: none; /* Quita los puntos de la lista */
+    font-family: "Raleway";
+    margin: 0;
+    padding: 0;
+    gap: 3rem;
+}
+
+.navegacion__enlace {
+    color: var(--blanco);
+    font-size: 1.6rem;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.navegacion__enlace::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background: var(--blanco);
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.navegacion__enlace:hover::after {
+    width: 100%;
+}
+
+
+/*||| Estilos para el efecto de scroll ||||*/
+.barra.scrolling {
+    background-color: var(--negro); /* Fondo blanco más opaco al hacer scroll */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera al hacer scroll */
+}
+
+/*---------------------------------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------------------------------*/
+
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+    /*||| Boton Header|||*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
+/*||| Contenedor de botones debajo del texto adicional|||*/
+.contenedor_boton {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el contenedor */
+    margin-top: 10rem; /* Ajusta este valor para bajar los botones */
+}
+
+.boton {
+    display: flex;
+    justify-content: center;
+    gap: 8rem;
+}
+
+button .boton_enlace{
+    color: var(--blanco);
+}
+
+button  {
+    z-index: 2;
+    display: block;
+    color: var(--blanco);
+    width: fit-content;
+    height: auto;
+    outline: none;
+    border: none;
+    background-color: inherit;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+button::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: scaleX(0.2) scaleY(0.5) translate(250%, 100%);
+    border-top: solid 2px #ffffff;
+    border-left: solid 4px #ffffff;
+    transition: all .4s ease-in-out;
+}
+
+button::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%) scaleX(0.2) scaleY(0.5);
+    border-bottom: solid 2px #ffffff;
+    border-right: solid 4px #ffffff;
+    transition: all .4s ease-in-out;
+}
+
+button:hover::before {
+    transform: translate(0%, 0%) scaleX(1) scaleY(1);
+    border-top: solid 1px #ffffff;
+    border-left: solid 1px #ffffff;
+}
+
+button:hover::after {
+    transform: scaleX(1) scaleY(1) translate(0%, 0%);
+    border-bottom: solid 1px #ffffff;
+    border-right: solid 1px #ffffff;
+}
+/*-------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------*/
+/*||| Estilos generales para las secciones |||*/
+section {
+    padding: 50px 0; /* Espacio vertical entre secciones */
+    background-color: #f0f0f0; /* Color de fondo de ejemplo */
+}
+
+.contenedor {
+    max-width: 960px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centrar el contenido */
+    padding: 0 20px; /* Espacio horizontal en el contenido */
+}
+
+h2 {
+    text-align: center; /* Centrar los títulos */
+    margin-bottom: 20px; /* Espacio debajo de los títulos */
+}
+
+/*-------------------------------------------------------*/
+/* Estilos específicos para cada sección (opcional)*/
+/* .seccion-pastores { /* ...  } 
+.seccion-quienes-somos { /* ...  }
+.seccion-vision { /* ...  }
+.seccion-donaciones { /* ...  }
+.seccion-en-vivo { /* ...  }
+.seccion-video-short { /* ... *}
+.seccion-predica-reciente { /* ...  }
+.seccion-evento-2025 { /* ... } 
+/*-------------------------------------------------------*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+    /* ESTILOS PARA LAS FUTURAS SECCIONES */
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
+/* Estilos para los botones */
+.boton-donacion, .boton-en-vivo {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Color de fondo de ejemplo */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Estilos para el video short */
+.seccion-video-short video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilos para el video de YouTube */
+.seccion-predica-reciente iframe {
+    max-width: 100%;
+}
+/*------------------------------------------------------------------------------------------------------*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+ /* ||| SECCIÓN PASTORES ||| */
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
+/*||| Estilos para la sección de Pastores |||*/
+.seccion-pastores {
+    background-color: #f8f8f8; /* Color de fondo */
+    padding: 80px 0; /* Espacio vertical */
+}
+
+.seccion-pastores .contenedor {
+    max-width: 1200px; /* Ancho máximo del contenedor */
+}
+
+/* Estilos para el contenido principal */
+.pastores-content {
+    display: flex; /* Usar flexbox para alinear los elementos */
+    align-items: center; /* Alinear verticalmente al centro */
+    justify-content: space-between; /* Espacio entre los elementos */
+    margin-bottom: 40px; /* Espacio debajo del contenido principal */
+    
+}
+
+.pastor-image {
+    width: 25%; /* Ancho de las imágenes */
+    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.5));
+}
+
+.pastor-image::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30px; /* Ajusta la altura del difuminado */
+    background: linear-gradient(to bottom, transparent, #f8f8f8); /* Degradado de transparente al color de fondo */
+}
+
+.pastor-image img {
+    max-width: 100%; /* Ajustar la imagen al ancho del contenedor */
+    height: auto;
+}
+
+.pastor-title {
+    text-align: center; /* Centrar el título */
+    width: 50%; /* Ancho del título */
+    font-size: 40px;
+}
+
+.pastor-title h2 {
+    color: #333; /* Color del título */
+}
+
+/* Estilos para la descripción */
+.pastor-description {
+    text-align: center; /* Centrar el texto */
+    color: #666; /* Color del texto */
+    font-size: 28px;
+    margin-bottom: 20rem;
+    position: relative;
+    top: 8rem;
+}
+/*-----------------------------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------------------------*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+    /* SECCION QUIENES SOMOS */
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
+.seccion-quienes-somos {
+    background-color: #f8f8f8; /* Color de fondo */
+    padding: 80px 0; /* Espacio vertical */
+}
+
+.seccion-quienes-somos .contenedor {
+    max-width: 1200px; /* Ancho máximo del contenedor */
+}
+
+.quienes-somos-content {
+    display: flex; /* Usar flexbox para alinear los elementos */
+    align-items: center; /* Alinear verticalmente al centro */
+    gap: 40px; /* Espacio entre el texto y la imagen */
+}
+
+.quienes-somos-text {
+    flex: 1; /* El texto ocupa el espacio disponible */
+}
+
+
+.quienes-somos-image {
+    width: 40%; /* Ancho de la imagen */
+}
+
+.quienes-somos-image img {
+    max-width: 100%; /* La imagen se ajusta al ancho del contenedor */
+    height: auto;
+}
+
+/*|||TITULO QUIENES SOMOS|||*/
+.QuienesSomos-title {
+    text-align: center; /* Centrar el texto */
+    color: #333; /* Color del texto */
+    font-size: 28px;
+}
+
+/*TEXTO QUIENES SOMOS|||*/
+.texto-quienesSomos {
+    text-align: center; /* Centrar el texto */
+    color: #666; /* Color del texto */
+    font-size: 28px;
+}
+
+
+
+
+
+/*---------------------------------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------------------------------*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+    /* |||SECCIÓN CONTACTO||| */
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
+/* Estilos para la sección de contacto */
+.seccion-contacto {
+    background-color: #f8f8f8; /* Color de fondo */
+    padding: 80px 0; /* Espacio vertical */
+}
+
+.seccion-contacto .contenedor {
+    max-width: 1200px; /* Ancho máximo del contenedor */
+}
+
+.contacto-content {
+    display: flex; /* Usar flexbox para alinear los elementos */
+    gap: 40px; /* Espacio entre la información de contacto y el formulario */
+}
+
+.contacto-info {
+    flex: 1; /* La información de contacto ocupa el espacio disponible */
+}
+
+.contacto-form {
+    flex: 1; /* El formulario ocupa el espacio disponible */
+}
+
+.contacto-form input,
+.contacto-form textarea {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espacio interno */
+    margin-bottom: 20px; /* Espacio inferior */
+    border: 1px solid #ccc; /* Borde */
+}
+
+.contacto-form textarea {
+    height: 120px; /* Altura del área de texto */
+}
+
+.contacto-form button {
+    background-color: #007bff; /* Color de fondo */
+    color: #fff; /* Color de texto */
+    padding: 10px 20px; /* Espacio interno */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cursor de puntero */
+}
+
+
+/*----------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------------*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+    /* SECCIÓN DIA REUNIONES */
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
+#dias-reuniones table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#dias-reuniones th,
+#dias-reuniones td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#dias-reuniones th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+        /* |||FOOTER||| */
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+
+
+/* Estilos para el footer */                                                                          
+
+footer {
+    background-color: var(--negro); /* Color de fondo */
+    color: #fff; /* Color de texto */
+    padding: 40px 0; /* Espacio vertical */
+}
+
+footer .contenedor {
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    display: flex; /* Usar flexbox para alinear los elementos */
+    justify-content: center; /*Espacio entre los elementos */
+    align-items: center; /* Alinear verticalmente al centro */
+}
+
+footer p {
+    margin: 0; /* Eliminar márgenes predeterminados */
+    font-size: 15px;
+}
+
+.footer-links {
+    list-style: none; /* Eliminar viñetas de la lista */
+    margin: 0; /* Eliminar márgenes predeterminados */
+    padding: 0; /* Eliminar padding predeterminado */
+    display: flex; /* Usar flexbox para alinear los enlaces */
+}
+
+.footer-links li {
+    margin-left: 20px; /* Espacio entre los enlaces */
+    font-size: 13px;
+}
+
+.footer-links a {
+    color: #fff; /* Color de texto */
+    text-decoration: none; /* Eliminar subrayado de los enlaces */
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
+
+
+
+
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+
+
+
+/*------------------------------------------------------------------------------------------------------*/
+
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/* ||| Media Queries ||||*/
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/*------------------------------------------------------------------------------------------------------*/
+ /*||| Móviles grandes (425px - 767px)||| */                                                         /*/*/
+ /*-----------------------------------------------------------------------------------------------------*/
+@media (min-width: 425px) {
+    .boton {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem; /* Ajusta este valor según necesites */
+        margin-top: 60%; /* Ajusta este valor según necesites */
+        width: 90%;
+    }
+}
+/*--------------------------------------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------------------------------------------*/
+/*||| Dispositivos móviles pequeños (menos de 768px) |||*/                                             /*|*/
+/*--------------------------------------------------------------------------------------------------------*/
+@media (max-width: 767px) {
+    .Logo__imagen {
+        height: 7rem; /* Reduce el tamaño del logo */
+    }
+
+    .navegacion {
+        flex-direction: column; /* Menu en columna */
+        align-items: center; /* Centrar items horizontalmente */
+        text-align: center; /* Centrar texto en enlaces */
+        gap: 1rem; /* Espacio entre enlaces */
+        padding: 1rem;
+    }
+
+    .navegacion__enlace {
+        font-size: 1.4rem;
+        display: block; /* Ocupar todo el ancho disponible */
+        width: 100%; /* Ocupar todo el ancho disponible */
+        text-align: center; /* Centrar texto en enlaces */
+    }
+
+    .navegacion__enlace::after {
+        display: none; /* Ocultar la línea inferior en móvil */
+    }
+
+    .texto-bienvenida {
+        font-size: 2em; /* Reduce el tamaño del texto */
+        padding: 1rem;
+        max-width: 90%; /* Ancho máximo del texto */
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px); /* Reduce el blur */
+    }
+
+    .linea-divisora {
+        width: 80%; /* Reduce el ancho de la línea */
+    }
+
+    .boton {
+        flex-direction: column; /* Botones en columna en móviles */
+        gap: 2rem; /* Espacio entre botones */
+        margin-top: 30rem; /* Ajusta el margen superior */
+        width: 90%; /* Ocupar casi todo el ancho */
+        margin: 30rem auto 0; /* Centrar horizontalmente */
+    }
+}
+/*-----------------------------------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------------------------------*/
+/*|||| Tablets y dispositivos medianos (768px - 991px)|||| */                                             /*|*/
+/*-----------------------------------------------------------------------------------------------------------*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .texto-bienvenida {
+        font-size: 2.5em;
+    }
+
+    .boton {
+        flex-direction: column; /* Botones en columna */
+        gap: 2rem; /* Espacio entre botones */
+        margin-top: 60rem; /* Ajusta el margen superior */
+    }
+}
+/*------------------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------------------*/
+/*||| Dispositivos grandes (992px en adelante) - Opcional ||||*/                                      /*|*/
+/*-------------------------------------------------------------------------------------------------------*/
+@media (min-width: 992px) {
+    .navegacion {
+        flex-direction: row; /* Menu en fila */
+        align-items: center;
+    }
+
+    .navegacion__enlace {
+        font-size: 1.6rem;
+        display: inline; /* Enlaces en línea */
+        width: auto; /* Ancho automático */
+        text-align: left; /* Texto alineado a la izquierda */
+    }
+
+    .navegacion__enlace::after {
+        display: block; /* Mostrar la línea inferior en escritorio */
+    }
+
+    .texto-bienvenida {
+        font-size: 3em;
+    }
+
+    .boton {
+        flex-direction: row; /* Botones en fila */
+        gap: 7rem; /* Espacio entre botones */
+        margin-top: 60rem; /* Ajusta el margen superior */
+    }
+}
+/*-----------------------------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------------------------*/
+/*||| MEDIA QUERIES PARA EL BOTON MENÚ||| */                                                        /*|*/
+                                                                                                    /*|*/
+/*||| Móviles grandes (425px - 767px) |||*/                                                         /*|*/
+/*-----------------------------------------------------------------------------------------------------*/
+@media (min-width: 425px) and (max-width: 767px) {
+    .navegacion__lista {
+        display: none; /* Oculta la lista en pantallas medianas */
+        flex-direction: column; /* Menu en columna */
+        position: absolute; /* Posiciona el menú */
+        top: 100%; /* Debajo de la barra de navegación */
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+        text-align: center; /* Centrar el texto */
+    }
+
+    .navegacion__item {
+        margin: 1rem 0; /* Espacio entre los items del menú */
+    }
+
+    .navegacion__enlace {
+        display: block; /* Ocupar todo el ancho */
+        color: white;
+    }
+
+    .menuButton {
+        display: flex; /* Muestra el menú botón */
+    }
+
+    .boton { /* Ajusta el margen de los botones debajo del texto */
+        margin-top: 50rem;
+    }
+}
+/*----------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------*/
+/*||| Tablets y dispositivos medianos (768px - 991px) |||*/                                        /*|*/
+/*----------------------------------------------------------------------------------------------------*/
+@media (min-width: 768px) and (max-width: 991px) {
+    /* Estilos para tablets */
+    .navegacion__lista {
+        display: flex; /* Muestra la lista en tablets */
+    }
+
+    .menuButton {
+        display: none; /* Oculta el menú botón en tablets */
+    }
+
+    .boton { /* Ajusta el margen de los botones debajo del texto */
+        margin-top: 60rem;
+    }
+}
+/*------------------------------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------------------*/
+/*||| Dispositivos grandes (992px en adelante) |||*/                                                 /*|*/
+/*------------------------------------------------------------------------------------------------------*/
+@media (min-width: 992px) {
+    /* Estilos para escritorios */
+    .navegacion__lista {
+        display: flex; /* Muestra la lista en escritorios */
+    }
+
+    .menuButton {
+        display: none; /* Oculta el menú botón en escritorios */
+    }
+
+    .boton { /* Ajusta el margen de los botones debajo del texto */
+        margin-top: 60rem;
+    }
+}
+/*---------------------------------------------------------------------------------------------------------*/
